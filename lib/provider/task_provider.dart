@@ -6,7 +6,6 @@ import '../models/task_model.dart';
 class TaskProvider with ChangeNotifier {
   List<Task> _tasks = [];
 
-  // Getters to filter tasks for the two UI sections
   List<Task> get pendingTasks => _tasks.where((t) => !t.isCompleted).toList();
   List<Task> get completedTasks => _tasks.where((t) => t.isCompleted).toList();
 
@@ -14,7 +13,6 @@ class TaskProvider with ChangeNotifier {
     _loadTasksFromPrefs(); 
   }
 
-// add task logic 
 
   void addTask(String title) {
     if (title.trim().isEmpty) return;
